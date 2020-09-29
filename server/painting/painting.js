@@ -18,7 +18,13 @@ app.use(cors())
 app.get('/findAll', async (req, res) => {
   try {
     const painting = await Painting.find();
+    painting.forEach(element => {
+      console.log(element);
+      element.img =  `data:${element.imgType};charset=utf-8;base64,${element.img.Binary.buffer.toString('base64')}`;
+      console.log("elem.img",element.img);
+    });
     res.status(200).send({
+
       message: painting
     })
   } catch (err) {
