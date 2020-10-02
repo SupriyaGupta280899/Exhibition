@@ -1,9 +1,15 @@
 <div>
   <input type='file' (change)="onFileChanged($event)">
   <button (click)="myfunc()">Upload</button>
+  <button (click)="getAllImages()">getImages</button>
+  <div *ngFor="let pic of allImages">
+    <p>{{pic.price}}</p>
+    <img src="{{pic.img}}" height="600" width="500" />
+  </div>
 </div>
 <!-- <img src="data:image/png;base64,{{image}}" height="1000" width="1000"/> -->
-<img src="{{image3}}" height="600" width="600"/>
+<!-- <img src="{{image3}}" height="600" width="600" /> -->
+
 <!-- <img src="{{image}}" height="600" width="600"/> -->
 <!-- <img src="data:image/png;{{image}}" height="500" width="500"/> -->
 
