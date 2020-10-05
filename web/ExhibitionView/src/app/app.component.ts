@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import {Directive,OnInit, Input, Output, EventEmitter} from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -53,7 +54,8 @@ export class AppComponent {
         console.log("Error", error);
     });
   }
-  getAllImages(){
+  ngOnInit(){
+  //getAllImages(){
     this.http.get('http://localhost:4003/findAll',{
       // observe: "response",
       // responseType: "text"
@@ -64,7 +66,7 @@ export class AppComponent {
         console.log("Error", error);
     });
 
-  }
-  
+  //}
+}
 
 }
