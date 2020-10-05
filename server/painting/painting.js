@@ -47,10 +47,17 @@ app.post('/add', async (req, res, next) => {
     name, price, status, desc, img, imgType
   });
   try {
+    const paint= await Painting.find({ name: name });
+    if (paint.length > 0 && res.statusCode==200) {
+      res.status(200).send({
+        message:"Paintaing name not available! Please apecify unique name"
+      })
+    }else{
     const newPainting = await painting.save();
     res.status(200).send({
-      message: "Saved Successfully!"
+      message: newPainting._id
     })
+  }
   } catch (err) {
     res.status(400).send({
       message: "Error Occurred"
