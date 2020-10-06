@@ -50,7 +50,7 @@ app.post('/add', async (req, res, next) => {
     const paint= await Painting.find({ name: name });
     if (paint.length > 0 && res.statusCode==200) {
       res.status(200).send({
-        message:"Paintaing name not available! Please apecify unique name"
+        message:"Paintaing name not available! Please specify unique name"
       })
     }else{
     const newPainting = await painting.save();
