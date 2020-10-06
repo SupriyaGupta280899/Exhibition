@@ -1,21 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import {Directive,OnInit, Input, Output, EventEmitter} from '@angular/core';
-import { Router } from '@angular/router';
-@Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
-})
-export class AppComponent {
-  title = 'ExhibitionView';
-  allImages = [];
-  
-  constructor(private http: HttpClient) {
-  }
 
+@Component({
+  selector: 'app-upload',
+  templateUrl: './upload.component.html',
+  styleUrls: ['./upload.component.css']
+})
+export class UploadComponent implements OnInit {
+
+  constructor(private http: HttpClient) { }
   onFileChanged(event) {
     let file = event.target.files[0]
     let pattern = /image-*/;
@@ -54,19 +49,7 @@ export class AppComponent {
         console.log("Error", error);
     });
   }
-  ngOnInit(){
-  //getAllImages(){
-    this.http.get('http://localhost:4003/findAll',{
-      // observe: "response",
-      // responseType: "text"
-    }).subscribe((data:any) => {
-      console.log("findalldata",data);
-    this.allImages = data.message;
-    }, error => {
-        console.log("Error", error);
-    });
-
-  //}
-}
+  ngOnInit(): void {
+  }
 
 }

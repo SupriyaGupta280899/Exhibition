@@ -1,0 +1,109 @@
+<div id="booking" class="section">
+    <div class="section-center">
+        <div class="container">
+            <div class="row">
+                <div class="booking-form">
+                    <div class="form-header">
+                        <br>
+                        <h1>View Your Own Business</h1>
+                    </div>
+                    <form>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <h1>Enter your contact information</h1>
+                                    <!-- <span class="form-label">Check In</span><br> -->
+                                    <mat-form-field>
+                                        <mat-label>Name</mat-label>
+                                        <input matInput placeholder="Email" name="id" type="email" required>
+                                    </mat-form-field><br>
+                                    <mat-form-field>
+                                        <mat-label>Mobile No.</mat-label>
+                                        <input matInput placeholder="Mobile No." name="mobile"required>
+                                    </mat-form-field><br>
+                                    <mat-form-field>
+                                        <mat-label>Address</mat-label>
+                                        <input matInput type="password" placeholder="Password" name="password" required>
+                                    </mat-form-field><br>
+                                    <!-- <mat-form-field>
+
+                                        <mat-label class="color form-label">Check In Date</mat-label>
+                                        <input matInput [matDatepicker]="picker1"  [(ngModel)]='checkin' class="input"
+                                            disabled required [ngModelOptions]="{standalone: true}">
+                                        <mat-datepicker-toggle matSuffix [for]="picker1">
+                                        </mat-datepicker-toggle>
+                                        <mat-datepicker #picker1 disabled="false"></mat-datepicker>
+                                    </mat-form-field> -->
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <!-- <span class="form-label" #picker1="ngModel" [(ngModel)]='checkin'>Check out</span><br> -->
+                                    <mat-form-field>
+                                        <mat-label class="color form-label">Search for Date</mat-label>
+                                        <input matInput [matDatepicker]="picker2" class="input"
+                                            [(ngModel)]='checkout' disabled 
+                                            [ngModelOptions]="{standalone: true}">
+                                        <mat-datepicker-toggle matSuffix [for]="picker2">
+                                        </mat-datepicker-toggle>
+                                        <mat-datepicker #picker2 disabled="false"></mat-datepicker>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <button mat-button class="submit-btn" >Search</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <br><br>
+    <!-- <div class="section-center"> -->
+        <!-- <div *ngIf="search"> -->
+
+            <!-- <div class="container">
+                <div class="row">
+                    <div class="booking-form2">
+                        <form>
+                            <div class="row">
+                                <div *ngFor="let i of room_types">
+                                    <div class="col-md-4 col-sm-12">
+                                        <div class="form-group">
+                                            <mat-card class="example-card">
+                                                <mat-card-header class="card-header">
+                                                    <div class="col-md-6">
+                                                        <mat-card-title class="title">{{i.room_type}}
+                                                        </mat-card-title>
+                                                        <mat-card-subtitle class="subtitle">Rs {{i.price}} per room
+                                                        </mat-card-subtitle>
+                                                    </div>
+                                                    <div class="col-md-6" style="text-align: right;">
+                                                        <button mat-raised-button (click)="pay(i)">Book</button>
+                                                    </div>
+                                                </mat-card-header>
+                                                <mat-divider></mat-divider>
+                                                <img mat-card-image src="../../../assets/Images/{{i.room_type}}.jpg" alt="Standard Room" height="184px">
+                                                <mat-card-content class="content">
+                                                    {{i.count}} rooms available!
+
+                                                </mat-card-content>
+                                            </mat-card>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+
+
+                    </div> -->
+
+                <!-- </div> -->
+            <!-- </div>
+        </div>
+    </div> -->
+</div>
