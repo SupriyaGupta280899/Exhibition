@@ -8,7 +8,7 @@
                 <mat-card-title>{{pic.name}}</mat-card-title>
                 <mat-card-subtitle>Painting</mat-card-subtitle>
             </mat-card-header>
-            <img mat-card-image src="{{pic.img}}" alt="Photo of a Shiba Inu">
+            <img mat-card-image src="{{pic.img}}" alt="{{pic.name}}" height="300" width="100">
             <mat-card-content>
                 <p>{{pic.desc}}
                     <!-- The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
@@ -18,10 +18,12 @@
             </mat-card-content>
             <mat-card-actions>
                 <span><b>${{pic.price}}</b></span>
-                <button mat-icon-button color="primary">
-                    <mat-icon>get_app</mat-icon>
-                </button>
-                <button mat-icon-button color="primary" routerLink="/buy">
+                <a href="{{pic.img}}" title="{{pic.name}}" download="{{pic.name}}">
+                    <button mat-icon-button color="primary">
+                        <mat-icon>get_app</mat-icon>
+                    </button>
+                </a>
+                <button mat-icon-button color="primary" (click)="openDialog(pic)">
                     <mat-icon>shopping_cart</mat-icon>
                 </button>
                 <!-- <button mat-button>Download</button>
@@ -30,7 +32,6 @@
         </mat-card>
     </div>
 </div>
-
 <mat-card class="example-card">
     <mat-card-header>
         <div mat-card-avatar class="example-header-image"></div>
@@ -50,25 +51,35 @@
         <button mat-button>Buy</button>
     </mat-card-actions>
 </mat-card>
-
+<!-- <div> -->
+    <!-- <input type='file' (change)="onFileChanged($event)"> -->
+    <!-- <button (click)="myfunc()">Upload</button> -->
+    <!-- <button (click)="getAllImages()">getImages</button> -->
+    <!-- <div *ngFor="let pic of allImages">
+      <p>{{pic.price}}</p>
+      <img src="{{pic.img}}" height="600" width="500" />
+    </div> -->
+<!-- </div> -->
+<!-- <img src="data:image/png;base64,{{image}}" height="1000" width="1000"/> -->
+<!-- <img src="{{image3}}" height="600" width="600" /> -->
 <!-- <div>
     <input type='file' (change)="onFileChanged($event)">
     <button (click)="myfunc()">Upload</button> -->
-    <!-- <button (click)="getAllImages()">getImages</button> -->
-    <!-- <div *ngFor="let pic of allImages">
+<!-- <button (click)="getAllImages()">getImages</button> -->
+<!-- <div *ngFor="let pic of allImages">
     <p>{{pic.price}}</p>
     <img src="{{pic.img}}" height="600" width="500" />
   </div> -->
-  <!-- </div> -->
-  <!-- <img src="data:image/png;base64,{{image}}" height="1000" width="1000"/> -->
-  <!-- <img src="{{image3}}" height="600" width="600" /> -->
+<!-- </div> -->
+<!-- <img src="data:image/png;base64,{{image}}" height="1000" width="1000"/> -->
+<!-- <img src="{{image3}}" height="600" width="600" /> -->
 
-  <!-- <img src="{{image}}" height="600" width="600"/> -->
-  <!-- <img src="data:image/png;{{image}}" height="500" width="500"/> -->
+<!-- <img src="{{image}}" height="600" width="600"/> -->
+<!-- <img src="data:image/png;{{image}}" height="500" width="500"/> -->
 
 
 
-  <!-- <form>
+<!-- <form>
 <div class="form-group">
   <label for="file">File</label>
   <input 
