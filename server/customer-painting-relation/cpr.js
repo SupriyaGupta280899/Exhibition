@@ -22,12 +22,12 @@ const Relation= require('./models/Cpr');
 app.post('/add', async (req, res, next) => {
     console.log(req.body, "body")
     const { paintingId,customerId,relation } = req.body;
-    const relation = new Relation({
+  const cpr = new Relation({
       customerId,paintingId,relation
     });
     try {
    
-      const newRelation = await relation.save();
+      const newRelation = await cpr.save();
      
       res.status(200).send({
         message: newRelation
@@ -43,7 +43,8 @@ app.post('/add', async (req, res, next) => {
   app.get('/findWithCid', async (req, res, next) => {
     try {
       console.log(req.query, "query")
-      const relation= await Relation.find({ customerId: req.query.customerId });
+      const relation= await Relation.find({ });
+      console.log(relation)
       res.status(200).send({
         message:relation
       })
