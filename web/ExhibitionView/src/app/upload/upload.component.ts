@@ -33,7 +33,7 @@ export class UploadComponent implements OnInit {
   {
     //send object's data from UI, imageType extract it from this.selectedFile
     let obj = {
-      name : "aa",
+      name : "supriya",
       price : 100,
       desc : "aaa",
       img : this.selectedFile,

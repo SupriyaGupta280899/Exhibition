@@ -61,7 +61,7 @@ app.post('/add', async (req, res, next) => {
     })
   }
 });
-app.search('/search', async (req, res, next) => {
+app.get('/search', async (req, res, next) => {
   try {
     console.log(req.query, "query")
     const customer = await Customer.find({ name: req.query.name, mobileNumber:req.query. mobileNumber, address: req.query.address });

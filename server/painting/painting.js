@@ -83,6 +83,28 @@ app.put('/updateStatus', async (req, res, next) => {
     })
   }
 })
+app.get('/findOne', async (req, res, next) => {
+  try {
+    console.log(req.query, "query")
+    const element = await Painting.find({ _id: req.query._id });
+    let data  = {};
+    data.name = element[0].name;
+    data.status = element[0].status;
+    data._id = element[0]._id;
+    data.price = element[0].price;
+    data.desc = element[0].desc;
+    data.imgType = element[0].imgType;
+    var b = Buffer.from(element[0].img, 'base64').toString('ascii')
+    data.img = b
+    res.status(200).send({
+      message: data
+    })
+  } catch (err) {
+    res.status(400).send({
+      message: "Error Occurred"
+    })
+  }
+})
 
 
 app.listen(4003, () => {
