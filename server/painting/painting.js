@@ -71,7 +71,7 @@ app.put('/updateStatus', async (req, res, next) => {
       _id : req.body._id
     },{
       $set : {
-        status : true
+        status : false
       }
     });
     res.status(200).send({

@@ -1,9 +1,58 @@
-<div>
-    <input type='file' (change)="onFileChanged($event)">
-    <button (click)="myfunc()">Upload</button> -->
-    <!-- <button (click)="getAllImages()">getImages</button> -->
-    <!-- <div *ngFor="let pic of allImages">
+<!-- <div>
+  <input type='file' (change)="onFileChanged($event)">
+  <button (click)="myfunc()">Upload</button>
+</div> -->
+<!-- <button (click)="getAllImages()">getImages</button> -->
+<!-- <div *ngFor="let pic of allImages">
         <p>{{pic.price}}</p>
         <img src="{{pic.img}}" height="600" width="500" />
       </div> -->
+<!-- <p>cart-dialog works!</p> -->
+<h2>Personal Details</h2>
+<div mat-dialog-content>
+  <!-- <p>What's your favorite animal?</p> -->
+  <mat-form-field>
+    <mat-label>Your Name</mat-label>
+    <input matInput [(ngModel)]="data.customerName">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Contact</mat-label>
+    <input matInput [(ngModel)]="data.contact">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Address</mat-label>
+    <input matInput [(ngModel)]="data.address">
+  </mat-form-field>
+<!-- </div> -->
+  <!-- <p>cart-dialog works!</p> -->
+  <h2>Painting Details</h2>
+<!-- <div mat-dialog-content> -->
+  <!-- <p>What's your favorite animal?</p> -->
+  <mat-form-field>
+    <mat-label>Name</mat-label>
+    <input matInput [(ngModel)]="data.paintingName">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Price(In rupees)</mat-label>
+    <input matInput [(ngModel)]="data.price">
+  </mat-form-field>
+
+  <mat-form-field>
+    <ngx-mat-file-input (change)="onFileChanged($event)">
+      <mat-icon ngxMatFileInputIcon>folder</mat-icon>
+    </ngx-mat-file-input>
+  </mat-form-field>
+  <!-- <mat-form-field>
+    <mat-label>Upload Painting</mat-label>
+    <input type="file" matInput (change)="onFileChanged($event)">
+  </mat-form-field> -->
+  <mat-form-field>
+    <mat-label>Description</mat-label>
+    <input matInput [(ngModel)]="data.desc">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <!-- <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>Ok</button> -->
+  <button mat-button (click)="uploadPainting()" cdkFocusInitial>Upload</button>
 </div>

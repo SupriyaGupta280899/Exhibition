@@ -47,6 +47,9 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatTreeModule } from '@angular/material/tree';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { CartDialogComponent } from './cart-dialog/cart-dialog.component';
+import { NgxMatFileInputModule } from '@angular-material-components/file-input';
+// import Swal from 'sweetalert2';
+// import Swal from 'sweetalert2/dist/sweetalert2.js';
 
 @NgModule({
   declarations: [
@@ -100,7 +103,8 @@ import { CartDialogComponent } from './cart-dialog/cart-dialog.component';
     MatToolbarModule,
     MatTooltipModule,
     MatTreeModule,
-
+    NgxMatFileInputModule,
+    // Swal,
   ],
   providers: [],
   bootstrap: [AppComponent]

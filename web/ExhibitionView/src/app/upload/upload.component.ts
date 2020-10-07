@@ -1,8 +1,27 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Inject } from '@angular/core';
 import { HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
+export interface DialogData {
+  customerName: string,
+  address: string,
+  contact: number,
+  price:number,
+  desc:string,
+  paintingName:string,
+  painting: {
+    price:number;
+    name:string;
+    imgType: string,
+    status: boolean,
+    _id: string,
+    desc:string;
+  }
+  // animal: string;
+  // name: string
+}
 @Component({
   selector: 'app-upload',
   templateUrl: './upload.component.html',
@@ -10,8 +29,11 @@ import { HttpClient } from '@angular/common/http';
 })
 export class UploadComponent implements OnInit {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, public dialogRef: MatDialogRef<UploadComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: DialogData) { }
+
   onFileChanged(event) {
+    console.log("I am on filechanges");
     let file = event.target.files[0]
     let pattern = /image-*/;
     let reader = new FileReader();
@@ -28,8 +50,10 @@ export class UploadComponent implements OnInit {
     this.selectedFile = reader.result;
     console.log(this.selectedFile)
   }
-
-  myfunc()
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+  uploadPainting()
   {
     //send object's data from UI, imageType extract it from this.selectedFile
     let obj = {

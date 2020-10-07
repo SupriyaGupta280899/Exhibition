@@ -1,5 +1,6 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { CartDialogComponent } from '../cart-dialog/cart-dialog.component';
+import {UploadComponent} from '../upload/upload.component';
 import { HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
@@ -23,8 +24,8 @@ export class HomeComponent implements OnInit {
 
   openDialog(pic): void {
     const dialogRef = this.dialog.open(CartDialogComponent, {
-      width: '300px',
-      height: '400px',
+      width: '280px',
+      height: '350px',
       data: { customerName: this.customerName, address: this.address, contact: this.contact, painting: pic }
     });
     console.log("pic", pic);
