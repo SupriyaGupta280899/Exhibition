@@ -64,7 +64,8 @@ app.post('/add', async (req, res, next) => {
 app.get('/search', async (req, res, next) => {
   try {
     console.log(req.query, "query")
-    const customer = await Customer.find({ name: req.query.name, mobileNumber:req.query. mobileNumber, address: req.query.address });
+    const customer = await Customer.find({ name: req.query.name, mobileNumber:req.query.mobileNumber, address: req.query.address });
+    console.log(customer)
     res.status(200).send({
       message: customer
     })
@@ -78,7 +79,7 @@ app.get('/search', async (req, res, next) => {
 app.get('/findOne', async (req, res, next) => {
   try {
     console.log(req.query, "query")
-    const customer = await Customer.find({ _id: req.query.id });
+    const customer = await Customer.find({ _id: req.query._id });
     res.status(200).send({
       message: customer
     })

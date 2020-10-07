@@ -43,7 +43,7 @@ app.post('/add', async (req, res, next) => {
   app.get('/findWithCid', async (req, res, next) => {
     try {
       console.log(req.query, "query")
-      const relation= await Relation.find({ });
+      const relation= await Relation.find({customerId: req.query.customerId });
       console.log(relation)
       res.status(200).send({
         message:relation

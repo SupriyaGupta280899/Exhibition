@@ -1,0 +1,16 @@
+h1{
+    text-align: center;
+    font-size: 250%;
+}
+p {
+    font-size: 120%;
+}
+.maindiv{
+    padding: 20px;
+    margin:30px
+}
+img {
+    height: 500px;
+    width:600px;
+    margin:50px 
+}

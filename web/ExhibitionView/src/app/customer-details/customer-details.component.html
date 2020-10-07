@@ -70,7 +70,9 @@
     </div>
 
 
-
+<br>
+<br>
+<br>
 
 
 
@@ -109,15 +111,26 @@
                                         <mat-card class="mat-elevation-z4">
                                             <mat-card-header>
                                                 <!-- <div mat-card-avatar class="example-header-image"></div> -->
-                                                <div mat-card-avatar style="background-image: '{{pic.painting.img}}';"></div>
+                                                <div mat-card-avatar style="background-image: '{{pic.painting.img}}';">
+                                                </div>
                                                 <mat-card-title>{{pic.painting.name}}</mat-card-title>
 
                                             </mat-card-header>
-                                            <img mat-card-image src="{{pic.painting.img}}" alt="Photo of a Shiba Inu" width="100px" height="150px">
-                                            <mat-card-content>
+                                            <img mat-card-image src="{{pic.painting.img}}" alt="Photo of a Shiba Inu"
+                                                width="100px" height="150px">
+                                            <mat-card-content style="text-align:left;">
                                                 <span>Price: ${{pic.painting.price}}</span><br>
                                                 <span>Upload Date:{{pic.date}}</span><br>
-                                                <span>Status:<span *ngIf="pic.painting.status">Available</span><span *ngIf="!pic.painting.status">Not Available<a>Click here to see buyer info.</a></span></span><br>
+                                                <span>Status:<span *ngIf="pic.painting.status"
+                                                        style="color: green;">Available</span><span style="color: red;"
+                                                        *ngIf="!pic.painting.status">Sold<a
+                                                            (click)="fun(pic.painting._id)"><small
+                                                                style="margin-right: 0px;  text-align: right;"> Click
+                                                                here to see buyer info.</small></a><span *ngIf="binfo"
+                                                            style="color: blue;text-align: center;">
+                                                            <p>This Painting is Bought by {{bname}} having mobile number
+                                                                {{bnumber}}</p>
+                                                        </span></span></span><br>
 
                                             </mat-card-content>
 
@@ -161,8 +174,9 @@
                                                 <mat-card-title>{{pic.painting.name}}</mat-card-title>
 
                                             </mat-card-header>
-                                            <img mat-card-image src="{{pic.painting.img}}" alt="Photo of a Shiba Inu" width="100px" height="150px" >
-                                            <mat-card-content>
+                                            <img mat-card-image src="{{pic.painting.img}}" alt="Photo of a Shiba Inu"
+                                                width="100px" height="150px">
+                                            <mat-card-content style="text-align: left;">
                                                 <span>Price: ${{pic.painting.price}}</span><br>
                                                 <span>Buy Date:{{pic.date}}</span><br>
 
