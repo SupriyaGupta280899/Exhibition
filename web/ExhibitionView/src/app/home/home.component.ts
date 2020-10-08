@@ -1,6 +1,6 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { CartDialogComponent } from '../cart-dialog/cart-dialog.component';
-import {UploadComponent} from '../upload/upload.component';
+import { UploadComponent } from '../upload/upload.component';
 import { HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';

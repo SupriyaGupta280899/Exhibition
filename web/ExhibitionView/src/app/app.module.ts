@@ -48,6 +48,8 @@ import { MatTreeModule } from '@angular/material/tree';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { CartDialogComponent } from './cart-dialog/cart-dialog.component';
 import { NgxMatFileInputModule } from '@angular-material-components/file-input';
+// import { MaterialFileInputModule } from 'ngx-material-file-input';
+import { ReactiveFormsModule } from '@angular/forms';
 // import Swal from 'sweetalert2';
 // import Swal from 'sweetalert2/dist/sweetalert2.js';
 
@@ -104,6 +106,8 @@ import { NgxMatFileInputModule } from '@angular-material-components/file-input';
     MatTooltipModule,
     MatTreeModule,
     NgxMatFileInputModule,
+    ReactiveFormsModule,
+    // MaterialFileInputModule
     // Swal,
   ],
   providers: [],

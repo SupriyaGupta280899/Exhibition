@@ -36,7 +36,6 @@ app.get('/findAll', async (req, res) => {
 })
 
 app.post('/add', async (req, res, next) => {
-  console.log(req.body, "body")
   const { name, mobileNumber, address } = req.body;
   const customer = new Customer({
     name, mobileNumber, address
@@ -49,7 +48,6 @@ app.post('/add', async (req, res, next) => {
       })
     }else{
     const newCustomer = await customer.save();
-    console.log("customer",customer)
     res.status(200).send({
       message: newCustomer._id
     })
@@ -63,7 +61,6 @@ app.post('/add', async (req, res, next) => {
 });
 app.get('/search', async (req, res, next) => {
   try {
-    console.log(req.query, "query")
     const customer = await Customer.find({ name: req.query.name, mobileNumber:req.query. mobileNumber, address: req.query.address });
     res.status(200).send({
       message: customer
@@ -77,7 +74,6 @@ app.get('/search', async (req, res, next) => {
 
 app.get('/findOne', async (req, res, next) => {
   try {
-    console.log(req.query, "query")
     const customer = await Customer.find({ _id: req.query.id });
     res.status(200).send({
       message: customer

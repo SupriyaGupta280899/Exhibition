@@ -85,7 +85,6 @@ app.put('/updateStatus', async (req, res, next) => {
 })
 app.get('/findOne', async (req, res, next) => {
   try {
-    console.log(req.query, "query")
     const element = await Painting.find({ _id: req.query._id });
     let data  = {};
     data.name = element[0].name;
