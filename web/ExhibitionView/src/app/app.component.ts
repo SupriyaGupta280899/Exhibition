@@ -23,8 +23,8 @@ export class AppComponent {
 
   openUploadDialog(): void {
     const dialogRef = this.dialog.open(UploadComponent, {
-      width: '300px',
-      height: '500px',
+      width: '350px',
+      height: '600px',
       data: { customerName: this.customerName, address: this.address, contact: this.contact }
     });
     // console.log("pic", pic);
