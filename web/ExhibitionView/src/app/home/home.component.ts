@@ -17,8 +17,8 @@ export class HomeComponent implements OnInit {
   public customerName: string;
   public address: string;
   public contact: number;
-  constructor(private http: HttpClient, public dialog: MatDialog) {this.allImages=[];
-    //getAllImages(){
+  constructor(private http: HttpClient, public dialog: MatDialog) {
+    this.allImages = [];
     this.http.get('http://localhost:4003/findAll', {
       // observe: "response",
       // responseType: "text"
@@ -27,10 +27,8 @@ export class HomeComponent implements OnInit {
       this.allImages = data.message;
     }, error => {
       console.log("Error", error);
-    }); }
-
-
-  // constructor(public dialog: MatDialog) {}
+    });
+  }
 
   openDialog(pic): void {
     const dialogRef = this.dialog.open(CartDialogComponent, {
@@ -41,18 +39,17 @@ export class HomeComponent implements OnInit {
     console.log("pic", pic);
     console.log("data", this.customerName);
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      console.log(result);
-      console.log("data", this.customerName);
-      // console.log("data", this.data);
-      // this.animal = result;
     });
   }
 
   ngOnInit() {
-    
-
-    //}
+    this.http.get('http://localhost:4003/findAll', {
+    }).subscribe((data: any) => {
+      console.log("findalldata", data);
+      this.allImages = data.message;
+    }, error => {
+      console.log("Error", error);
+    });
   }
 
 

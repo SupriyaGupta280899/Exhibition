@@ -78,18 +78,13 @@ export class AppComponent {
     });
   }
   ngOnInit() {
-    //getAllImages(){
-    this.http.get('http://localhost:4003/findAll', {
-      // observe: "response",
-      // responseType: "text"
-    }).subscribe((data: any) => {
-      console.log("findalldata", data);
-      this.allImages = data.message;
-    }, error => {
-      console.log("Error", error);
-    });
-
-    //}
+    // this.http.get('http://localhost:4003/findAll', {
+    // }).subscribe((data: any) => {
+    //   console.log("findalldata", data);
+    //   this.allImages = data.message;
+    // }, error => {
+    //   console.log("Error", error);
+    // });
   }
 
 }
