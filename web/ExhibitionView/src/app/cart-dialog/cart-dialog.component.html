@@ -1,0 +1,22 @@
+<!-- <p>cart-dialog works!</p> -->
+<h1 mat-dialog-title>Order Details</h1>
+<div mat-dialog-content>
+  <!-- <p>What's your favorite animal?</p> -->
+  <mat-form-field>
+    <mat-label>Your Name</mat-label>
+    <input matInput [(ngModel)]="data.customerName">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Contact</mat-label>
+    <input matInput [(ngModel)]="data.contact">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Address</mat-label>
+    <input matInput [(ngModel)]="data.address">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <!-- <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>Ok</button> -->
+  <button mat-button (click)="placeOrder()" cdkFocusInitial>Place Order</button>
+</div>

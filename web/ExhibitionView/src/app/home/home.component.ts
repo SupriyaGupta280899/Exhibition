@@ -1,7 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
+import { CartDialogComponent } from '../cart-dialog/cart-dialog.component';
+import { UploadComponent } from '../upload/upload.component';
 import { HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -9,22 +12,48 @@ import { HttpClient } from '@angular/common/http';
 })
 export class HomeComponent implements OnInit {
   allImages = [];
-  constructor(private http: HttpClient) { }
-  
-  ngOnInit(){
-  //getAllImages(){
-    this.http.get('http://localhost:4003/findAll',{
+  animal: string;
+  public name: string;
+  public customerName: string;
+  public address: string;
+  public contact: number;
+  constructor(private http: HttpClient, public dialog: MatDialog) {this.allImages=[];
+    //getAllImages(){
+    this.http.get('http://localhost:4003/findAll', {
       // observe: "response",
       // responseType: "text"
-    }).subscribe((data:any) => {
-      console.log("findalldata",data);
-    this.allImages = data.message;
+    }).subscribe((data: any) => {
+      console.log("findalldata", data);
+      this.allImages = data.message;
     }, error => {
-        console.log("Error", error);
-    });
+      console.log("Error", error);
+    }); }
 
-  //}
-}
-  
+
+  // constructor(public dialog: MatDialog) {}
+
+  openDialog(pic): void {
+    const dialogRef = this.dialog.open(CartDialogComponent, {
+      width: '280px',
+      height: '350px',
+      data: { customerName: this.customerName, address: this.address, contact: this.contact, painting: pic }
+    });
+    console.log("pic", pic);
+    console.log("data", this.customerName);
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      console.log(result);
+      console.log("data", this.customerName);
+      // console.log("data", this.data);
+      // this.animal = result;
+    });
+  }
+
+  ngOnInit() {
+    
+
+    //}
+  }
+
 
 }

@@ -20,7 +20,7 @@ const paintingSchema = new Schema({
     },
     status : {
         type : Boolean,
-        default : false, // not sold
+        default : true, // not sold
         required : true
     },
     desc : {

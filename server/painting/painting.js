@@ -50,8 +50,7 @@ app.post('/add', async (req, res, next) => {
     const paint= await Painting.find({ name: name });
     if (paint.length > 0 && res.statusCode==200) {
       res.status(200).send({
-        message:"Paintaing name not available! Please apecify unique name"
-      })
+        message:null      })
     }else{
     const newPainting = await painting.save();
     res.status(200).send({
@@ -71,7 +70,7 @@ app.put('/updateStatus', async (req, res, next) => {
       _id : req.body._id
     },{
       $set : {
-        status : true
+        status : false
       }
     });
     res.status(200).send({
@@ -85,7 +84,6 @@ app.put('/updateStatus', async (req, res, next) => {
 })
 app.get('/findOne', async (req, res, next) => {
   try {
-    console.log(req.query, "query")
     const element = await Painting.find({ _id: req.query._id });
     let data  = {};
     data.name = element[0].name;
