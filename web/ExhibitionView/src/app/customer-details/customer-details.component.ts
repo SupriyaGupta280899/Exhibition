@@ -33,7 +33,7 @@ export class CustomerDetailsComponent implements OnInit {
   //     this.http.get('http://localhost:4001/findOne', {
   //       params: params
   //     }).subscribe((data: any) => {
-  //       this.bname = data.message[0].name;
+  //       thvalidatedis.bname = data.message[0].name;
   //       this.bnumber = data.message[0].mobileNumber;
   //     }, error => {
   //       console.log(error)
