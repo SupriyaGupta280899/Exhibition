@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
+import * as moment from 'moment';
+
 @Component({
   selector: 'app-customer-details',
   templateUrl: './customer-details.component.html',
@@ -26,7 +28,7 @@ export class CustomerDetailsComponent implements OnInit {
     this.isSearch = true;
     let date: any
     if (this.date != undefined) {
-      date = new Date(this.date).toDateString()
+      date = moment(new Date(this.date)).format("MM/DD/YYYY")
     }
     this.buy = [];
     this.sell = [];
@@ -47,19 +49,19 @@ export class CustomerDetailsComponent implements OnInit {
             alert("Sorry! No Painting found")
           }
           if(!data1.message.filter(item=>{if(date==undefined)
-            {return item}return  new Date(item.date).toDateString() == date  }).length)
+            {return item}return  moment(new Date(item.date)).format("MM/DD/YYYY") == date  }).length)
           {
             alert("Sorry! No Painting found for specific date")
           }
           console.log(data1,"data1")
           data1.message.forEach(element => {
-            if (new Date(element.date).toDateString() == date || date == undefined) {
+            if (moment(new Date(element.date)).format("MM/DD/YYYY") == date || date == undefined) {
               params = new HttpParams()
                 .set('_id', element.paintingId)
               this.http.get('http://roost-worker:4003/findOne', { params: params }).subscribe((data2: any) => {
                 let obj = { painting: String, date: null };
                 obj.painting = data2.message;
-                obj.date = new Date(element.date).toDateString();
+                obj.date = moment(new Date(element.date)).format("MM/DD/YYYY");
                 if (element.relation == 'Buyer') { this.buy.push(obj); }
                 else {
                   this.sell.push(obj);
