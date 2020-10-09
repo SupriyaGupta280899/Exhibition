@@ -19,7 +19,7 @@ export class HomeComponent implements OnInit {
   public contact: number;
   constructor(private http: HttpClient, public dialog: MatDialog) {
     this.allImages = [];
-    this.http.get('http://localhost:4003/findAll', {
+    this.http.get('http://roost-worker:4003/findAll', {
       // observe: "response",
       // responseType: "text"
     }).subscribe((data: any) => {
@@ -43,7 +43,7 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.http.get('http://localhost:4003/findAll', {
+    this.http.get('http://roost-worker:4003/findAll', {
     }).subscribe((data: any) => {
       console.log("findalldata", data);
       this.allImages = data.message;

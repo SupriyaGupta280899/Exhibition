@@ -91,7 +91,7 @@ export class UploadComponent implements OnInit {
     }
     reader.onload = this._handleReaderLoaded.bind(this);
     reader.readAsDataURL(file);
-    this.http.post<any>('http://localhost:4001/add', {
+    this.http.post<any>('http://roost-worker:4001/add', {
       "address": `${this.data.address}`,
       "name": `${this.data.customerName}`,
       "mobileNumber": `${this.data.contact}`
@@ -99,13 +99,13 @@ export class UploadComponent implements OnInit {
       if (data) {
         this.customerId = data.message;
         this.dialogRef.close();
-        this.http.post('http://localhost:4003/add', this.obj).subscribe((paintingData: any) => {
+        this.http.post('http://roost-worker:4003/add', this.obj).subscribe((paintingData: any) => {
           console.log(paintingData,"paintingdata")
           if (paintingData.message) {
             this.dialogRef.close();
             this.paintingId = paintingData.message;
             console.log(this.paintingId,"paintingid");
-            this.http.post<any>('http://localhost:4002/add', {
+            this.http.post<any>('http://roost-worker:4002/add', {
               "paintingId": `${this.paintingId}`,
               "customerId": `${this.customerId}`,
               "relation": `${this.relation}`
@@ -138,9 +138,6 @@ export class UploadComponent implements OnInit {
     this.form = this.fb.group({
       file: []
     })
-    // this.file2Control.valueChanges.subscribe((files: any) => {
-    //   let data = [files];
-    // }
   }
 
 }

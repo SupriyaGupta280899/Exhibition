@@ -68,7 +68,7 @@ export class AppComponent {
       imgType: "jpeg"
     }
 
-    this.http.post('http://localhost:4003/add', obj, {
+    this.http.post('http://roost-worker:4003/add', obj, {
       observe: "response",
       responseType: "text"
     }).subscribe((data: any) => {
@@ -78,13 +78,6 @@ export class AppComponent {
     });
   }
   ngOnInit() {
-    // this.http.get('http://localhost:4003/findAll', {
-    // }).subscribe((data: any) => {
-    //   console.log("findalldata", data);
-    //   this.allImages = data.message;
-    // }, error => {
-    //   console.log("Error", error);
-    // });
   }
 
 }

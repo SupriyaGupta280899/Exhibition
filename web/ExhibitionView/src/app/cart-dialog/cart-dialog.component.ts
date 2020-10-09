@@ -41,7 +41,7 @@ export class CartDialogComponent implements OnInit {
   ngOnInit(): void {
   }
   placeOrder() {
-    this.http.post<any>('http://localhost:4001/add', {
+    this.http.post<any>('http://roost-worker:4001/add', {
       "address": `${this.data.address}`,
       "name": `${this.data.customerName}`,
       "mobileNumber": `${this.data.contact}`
@@ -51,7 +51,7 @@ export class CartDialogComponent implements OnInit {
         this.customerId = data.message;
         console.log
           ("customer updated Successfully");
-        this.http.post<any>('http://localhost:4002/add', {
+        this.http.post<any>('http://roost-worker:4002/add', {
           "paintingId": `${this.data.painting._id}`,
           "customerId": `${this.customerId}`,
           "relation": `${this.relation}`
@@ -62,7 +62,7 @@ export class CartDialogComponent implements OnInit {
             console.log
               ("cpr updated Successfully");
             this.dialogRef.close();
-            this.http.put<any>('http://localhost:4003/updateStatus', {
+            this.http.put<any>('http://roost-worker:4003/updateStatus', {
               "_id": `${this.data.painting._id}`,
             }).subscribe(paintingData => {
               // this.postId = data
