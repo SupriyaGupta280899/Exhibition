@@ -12,7 +12,6 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { HomeComponent } from './home/home.component';
-import { PlaceOrderComponent } from './place-order/place-order.component';
 import { UploadComponent } from './upload/upload.component';
 import { AboutComponent } from './about/about.component';
 import { CustomerDetailsComponent } from './customer-details/customer-details.component';
@@ -57,7 +56,6 @@ import { ReactiveFormsModule } from '@angular/forms';
   declarations: [
     AppComponent,
     HomeComponent,
-    PlaceOrderComponent,
     UploadComponent,
     AboutComponent,
     CustomerDetailsComponent,
